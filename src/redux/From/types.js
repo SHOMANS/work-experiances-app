@@ -1,0 +1,2 @@
+export const STORAGE_FORM = "STORAGE_FORM";
+export const FINISH_UPDATE = "FINISH_UPDATE";
