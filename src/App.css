@@ -29,7 +29,7 @@ html {
   position: absolute;
   top: 14px;
   left: 11px;
-  z-index: 9999;
+  /* z-index: 9999; */
   padding: 2px 5px;
   color: #aaa;
   font-size: 13px;
@@ -37,7 +37,8 @@ html {
 }
 
 input:focus + .fieldLabel,
-textarea:focus ~ .fieldLabel {
+textarea:focus ~ .fieldLabel,
+.upperLabel {
   visibility: visible;
   background: white;
   top: -11px;
@@ -47,7 +48,7 @@ textarea:focus ~ .fieldLabel {
 .label,
 .label {
   position: absolute;
-  z-index: 9999;
+  /* z-index: 9999; */
   padding: 2px 5px;
   color: #aaa;
   font-size: 13px;
@@ -66,12 +67,16 @@ textarea,
   border-radius: 5px;
   border: 1px solid #ccc;
   margin-bottom: 20px;
+  padding-right: 25px;
 }
 
 .select__control {
   padding: 5px;
   margin: 0;
+  padding-right: 15px;
+  margin-bottom: 20px;
 }
+
 input:focus,
 textarea:focus,
 .select__control:focus {
@@ -155,6 +160,25 @@ h3 {
   background-color: rgb(255, 210, 210);
 }
 
+.required-star {
+  position: absolute;
+  font-size: 30px;
+  color: red;
+  top: 13px;
+  right: 10px;
+}
+
+.red-input > input,
+.red-input .select__control,
+.red-input .css-1s2u09g-control:hover {
+  border-color: red !important;
+  box-shadow: 0 0 0 1px red;
+}
+
+.red-input label {
+  color: red;
+}
+
 .loading {
   background-color: #5eba7d;
 }
@@ -189,15 +213,3 @@ h3 {
 button {
   cursor: pointer;
 }
-
-/* .inputError {
-  color: red;
-  background-color: rgb(255, 210, 210);
-  position: absolute;
-  top: 0px;
-  min-width: 200px;
-  right: -208px;
-  padding: 15px;
-  border-radius: 5px;
-  z-index: 99999;
-} */

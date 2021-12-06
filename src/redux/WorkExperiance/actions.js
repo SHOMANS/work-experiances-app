@@ -7,6 +7,7 @@ import {
   START_LOADING,
   UPDATE_WORK_EXPERIANCE,
 } from "./types";
+import { checkCurrentlyWork } from "../../utils/deleteEndDate";
 
 import * as api from "./api";
 import { FINISH_UPDATE } from "../From/types";
@@ -26,8 +27,8 @@ export const fetchAllWorkExperiances = () => async (dispatch) => {
 export const createNewWorkExperiance = (body) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
+    checkCurrentlyWork(body);
     const { data } = await api.createNew(body);
-
     dispatch({ type: CREATE_NEW_WORK_EXPERIANCE, payload: data });
   } catch (error) {
     dispatch({ type: ERROR, payload: error.message });
@@ -49,9 +50,9 @@ export const deleteWorkExperiance = (id) => async (dispatch) => {
 export const updateWorkExperiance = (body) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
-    await await api.updateOne(body);
-
-    dispatch({ type: UPDATE_WORK_EXPERIANCE, payload: body });
+    checkCurrentlyWork(body);
+    const { data } = await api.updateOne(body);
+    dispatch({ type: UPDATE_WORK_EXPERIANCE, payload: data });
   } catch (error) {
     dispatch({ type: ERROR, payload: error.message });
   }
