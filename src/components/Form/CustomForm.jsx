@@ -18,20 +18,39 @@ function CustomForm({ errors, touched, values }) {
         placeholder="Job Title"
         touched={touched}
         errors={errors}
+        required
       />
-      <Input
-        type="text"
-        name="jobField"
-        placeholder="Job Field"
-        touched={touched}
-        errors={errors}
+      <ReactSelect
+        name={"jobField"}
+        placeholder={"Job Field"}
+        options={[
+          {
+            label: "web",
+            value: "web",
+          },
+          {
+            label: "mobile",
+            value: "mobile",
+          },
+        ]}
+        required
+        as={ReactSelectComponent}
       />
-      <Input
-        type="text"
-        name="jobLocation"
-        placeholder="Job Location"
-        touched={touched}
-        errors={errors}
+      <ReactSelect
+        name={"jobLocation"}
+        placeholder={"Job Location"}
+        options={[
+          {
+            label: "gaza",
+            value: "gaza",
+          },
+          {
+            label: "out",
+            value: "out",
+          },
+        ]}
+        required
+        as={ReactSelectComponent}
       />
       <div className="half">
         <Input
@@ -40,6 +59,7 @@ function CustomForm({ errors, touched, values }) {
           label="Start Date"
           touched={touched}
           errors={errors}
+          required
         />
         <Input
           type="date"
@@ -47,6 +67,7 @@ function CustomForm({ errors, touched, values }) {
           label="End Date"
           touched={touched}
           errors={errors}
+          required
           disabled={values.currentlyWork}
         />
       </div>
@@ -67,6 +88,7 @@ function CustomForm({ errors, touched, values }) {
         placeholder="Job Description"
         touched={touched}
         errors={errors}
+        required
       />
       <h3>Company Details</h3>
 
@@ -76,6 +98,7 @@ function CustomForm({ errors, touched, values }) {
         placeholder="Company Name"
         touched={touched}
         errors={errors}
+        required
       />
       <Input
         type="text"
@@ -83,6 +106,7 @@ function CustomForm({ errors, touched, values }) {
         placeholder="Company Adress"
         touched={touched}
         errors={errors}
+        required
       />
       <Input
         type="text"
@@ -90,13 +114,15 @@ function CustomForm({ errors, touched, values }) {
         placeholder="Company Industry"
         touched={touched}
         errors={errors}
+        required
       />
       <Input
-        type="text"
+        type="number"
         name="companySize"
         placeholder="Company Size"
         touched={touched}
         errors={errors}
+        required
       />
       <Input
         type="text"
@@ -104,6 +130,7 @@ function CustomForm({ errors, touched, values }) {
         placeholder="Company Sector"
         touched={touched}
         errors={errors}
+        required
       />
       <Input
         type="text"
@@ -111,13 +138,15 @@ function CustomForm({ errors, touched, values }) {
         placeholder="Supervisor Name"
         touched={touched}
         errors={errors}
+        required
       />
       <Input
-        type="text"
+        type="number"
         name="supervisedEmployees"
         placeholder="# of Employees Supervised by You"
         touched={touched}
         errors={errors}
+        required
       />
       <Input
         type="text"
@@ -125,28 +154,31 @@ function CustomForm({ errors, touched, values }) {
         placeholder="Reason Of Leaving"
         touched={touched}
         errors={errors}
+        required
       />
       <h3>Compensation</h3>
       <div className="three">
         <Input
-          type="text"
+          type="number"
           name="startSalary"
           placeholder="Start Salary"
           touched={touched}
           errors={errors}
+          required
         />
         <Input
-          type="text"
+          type="number"
           name="endSalary"
           placeholder="End Salary"
           touched={touched}
           errors={errors}
+          required
         />
         <ReactSelect
           name={"currency"}
           placeholder={"Currency"}
           options={currencyOptions}
-          defaultValue={values.currency}
+          required
           as={ReactSelectComponent}
         />
       </div>

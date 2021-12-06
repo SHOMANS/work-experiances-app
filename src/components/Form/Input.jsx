@@ -9,18 +9,22 @@ function Input({
   label,
   disabled,
   checkBoxLabel,
+  required,
   component = "input",
 }) {
   return (
-    <div className="formField">
+    <div
+      className={`formField ${errors[name] && touched[name] && "red-input"}`}
+    >
       <Field
         type={type}
         name={name}
         placeholder={placeholder}
-        autoComplete={"off"}
+        autoComplete={"on"}
         component={component}
         disabled={disabled}
         id={name}
+        required={required}
       />
       {placeholder && (
         <label className="fieldLabel" htmlFor={name}>
@@ -36,6 +40,7 @@ function Input({
       {errors[name] && touched[name] && (
         <div className="inputError">{errors[name]}</div>
       )}
+      {required && <span className="required-star">*</span>}
     </div>
   );
 }
